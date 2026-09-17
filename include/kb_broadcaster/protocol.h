@@ -25,6 +25,15 @@
 #define KB_POS_OFFSET_TIMESTAMP 5
 #define KB_POS_PAYLOAD_LEN      8
 
+/*
+ * LAYER_CHANGE payload layout (bytes 1-8):
+ *   byte 1: layer index
+ *   byte 2: state (1=activated, 0=deactivated)
+ *   byte 3: locked (1=toggled, 0=momentary) — always 0 at ZMK v0.3
+ *            (the locked field was added to zmk_layer_state_changed after v0.3)
+ *   byte 4: reserved (0)
+ *   bytes 5-8: timestamp (uint32 LE)
+ */
 #define KB_LAYER_OFFSET_LAYER      1
 #define KB_LAYER_OFFSET_STATE      2
 #define KB_LAYER_OFFSET_LOCKED     3

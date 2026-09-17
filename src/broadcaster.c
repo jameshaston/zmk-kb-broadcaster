@@ -71,13 +71,13 @@ static int layer_state_listener(const zmk_event_t *eh) {
     buf[0] = KB_EVENT_LAYER_CHANGE;
     buf[KB_LAYER_OFFSET_LAYER] = ev->layer;
     buf[KB_LAYER_OFFSET_STATE] = ev->state ? 1 : 0;
-    buf[KB_LAYER_OFFSET_LOCKED] = ev->locked ? 1 : 0;
+    buf[KB_LAYER_OFFSET_LOCKED] = 0;
     buf[KB_LAYER_OFFSET_RESERVED] = 0;
     sys_put_le32((uint32_t)(ev->timestamp & 0xFFFFFFFF), &buf[KB_LAYER_OFFSET_TIMESTAMP]);
     buf[KB_SEQ_OFFSET] = seq_counter++;
 
-    LOG_DBG("LAYER_CHANGE layer=%u state=%u locked=%u seq=%u",
-            ev->layer, ev->state ? 1 : 0, ev->locked ? 1 : 0, buf[KB_SEQ_OFFSET]);
+    LOG_DBG("LAYER_CHANGE layer=%u state=%u seq=%u",
+            ev->layer, ev->state ? 1 : 0, buf[KB_SEQ_OFFSET]);
 
     raise_raw_hid_sent_event((struct raw_hid_sent_event){
         .data = buf,
