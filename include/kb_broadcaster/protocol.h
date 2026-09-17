@@ -1,0 +1,35 @@
+/*
+ * Copyright (c) 2026 The ZMK Contributors
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+#pragma once
+
+#define KB_BROADCAST_PROTOCOL_VERSION 1
+
+#define KB_EVENT_KEY_POSITION   0x01
+#define KB_EVENT_LAYER_CHANGE   0x02
+#define KB_EVENT_KEYCODE        0x03
+#define KB_EVENT_MODIFIERS      0x04
+#define KB_EVENT_HELLO          0x05
+#define KB_EVENT_BATTERY        0x06
+
+#define KB_PACKET_SIZE          32
+#define KB_PAYLOAD_OFFSET       1
+#define KB_SEQ_OFFSET           31
+
+#define KB_POS_OFFSET_POSITION  1
+#define KB_POS_OFFSET_STATE     3
+#define KB_POS_OFFSET_SOURCE    4
+#define KB_POS_OFFSET_TIMESTAMP 5
+#define KB_POS_PAYLOAD_LEN      8
+
+#define KB_LAYER_OFFSET_LAYER      1
+#define KB_LAYER_OFFSET_STATE      2
+#define KB_LAYER_OFFSET_LOCKED     3
+#define KB_LAYER_OFFSET_RESERVED   4
+#define KB_LAYER_OFFSET_TIMESTAMP  5
+#define KB_LAYER_PAYLOAD_LEN       8
+
+#define KB_SOURCE_LOCAL 0xFF

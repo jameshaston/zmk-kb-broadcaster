@@ -1,0 +1,6 @@
+config ZMK_KB_BROADCASTER
+    bool "Enable Keyboard State Broadcaster"
+    depends on RAW_HID
+    help
+      Subscribes to ZMK key position and layer state events and broadcasts
+      them over the raw HID pipe for companion apps to visualize.
