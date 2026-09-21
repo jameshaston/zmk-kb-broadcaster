@@ -455,6 +455,10 @@ static void hello_emit(void) {
     });
 }
 
+/* Forward declaration: conn_scan_cb is used by the consumer's conn-rescan
+ * path below and defined in the connectivity section further down. */
+static void conn_scan_cb(struct bt_conn *conn, void *data);
+
 /* ---- Consumer: drains the msgq on the low-prio workqueue ---- */
 
 static void kb_bcast_work_handler(struct k_work *work) {
